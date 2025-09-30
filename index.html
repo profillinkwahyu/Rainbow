@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Kelompok - Rainbow Linux</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* == Reset & Global Styles == */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #d4f8d4, #ffffff);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2a7d2a;
+        }
+
+        /* == Header / Hero Section == */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 90vh;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #28a745;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #218838;
+            transform: translateY(-3px);
+        }
+        
+        /* == About Section == */
+        #about p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* == Members Section == */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background: #fff;
+            padding: 25px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .member-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #e0ffe0;
+        }
+
+        .member-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .member-card .role {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons a {
+            color: #555;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #28a745;
+        }
+
+        /* == Projects Section == */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2a7d2a;
+        }
+        
+        .project-card p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        
+        .project-card .btn {
+            display: inline-block;
+            background: #555;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            align-self: flex-start;
+            transition: background 0.3s ease;
+        }
+        
+        .project-card .btn:hover {
+            background: #2a7d2a;
+        }
+
+        /* == Contact Section == */
+        #contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+        
+        #contact-form button {
+            cursor: pointer;
+            padding: 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        #contact-form button:hover {
+            background: #218838;
+        }
+
+        /* == Footer == */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        footer .social-links a {
+             color: #fff;
+             margin: 0 10px;
+             font-size: 1.5rem;
+             transition: color 0.3s ease;
+        }
+        
+        footer .social-links a:hover {
+            color: #28a745;
+        }
+        
+        footer p {
+            margin-top: 15px;
+        }
+
+        /* == Responsive == */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Rainbow Linux</h1>
+        <p>Menjelajahi Dunia Open Source dengan Penuh Warna</p>
+        <a href="#contact" class="cta-button">Hubungi Kami</a>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="container">
+                <h2>Tentang Kami</h2>
+                <p>Rainbow Linux adalah sebuah kelompok yang berdedikasi untuk belajar, berbagi, dan berinovasi dalam ekosistem open-source. Visi kami adalah menciptakan komunitas yang inklusif dan suportif bagi siapa saja yang tertarik dengan teknologi, khususnya sistem operasi Linux dan perangkat lunak bebas lainnya.</p>
+            </div>
+        </section>
+
+        <section id="members">
+            <div class="container">
+                <h2>Anggota Tim</h2>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150/77DD77/FFFFFF?Text=Tama" alt="Foto Tama">
+                        <h3>Tama</h3>
+                        <p class="role">Project Leader</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/ma_tamw?igsh=MWp4Y3M3aDc2eWhmcg=="><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150/89CFF0/FFFFFF?Text=Elsa" alt="Foto Elsa">
+                        <h3>Elsa</h3>
+                        <p class="role">Frontend Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150/FDFD96/000000?Text=Aziz" alt="Foto Aziz">
+                        <h3>Aziz</h3>
+                        <p class="role">Backend Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/rhmtaiz?igsh=OGZtYTRzcm8wMjQ1"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150/FFB347/FFFFFF?Text=Caca" alt="Foto Caca">
+                        <h3>Caca</h3>
+                        <p class="role">UI/UX Designer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150/FF6961/FFFFFF?Text=Intan" alt="Foto Intan">
+                        <h3>Intan</h3>
+                        <p class="role">Content & Documentation</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-medium"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <div class="container">
+                <h2>Projek & Kegiatan</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Linux Distro Review</h3>
+                        <p>Sebuah seri artikel dan video yang mengulas berbagai distribusi Linux, dari yang ramah pemula hingga yang ditujukan untuk profesional.</p>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Workshop Terminal Dasar</h3>
+                        <p>Kegiatan workshop bulanan untuk memperkenalkan command line interface (CLI) Linux kepada para pengguna baru dengan cara yang menyenangkan.</p>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Aplikasi Manajemen Tugas</h3>
+                        <p>Pengembangan aplikasi task manager open-source sederhana yang dibangun menggunakan teknologi web modern dan bisa di-host sendiri.</p>
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="container">
+                <h2>Hubungi Kami</h2>
+                <form id="contact-form" onsubmit="return validateForm()">
+                    <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+                    <input type="email" id="email" name="email" placeholder="Email Anda" required>
+                    <textarea id="message" name="message" rows="6" placeholder="Pesan Anda" required></textarea>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2025 Rainbow Linux. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function validateForm() {
+            // Mengambil nilai dari setiap input field
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Memeriksa apakah ada field yang kosong
+            if (name === '' || email === '' || message === '') {
+                alert('Peringatan: Semua kolom harus diisi!');
+                return false; // Mencegah form untuk disubmit
+            }
+
+            // Validasi email sederhana (memastikan ada karakter '@')
+            if (email.indexOf('@') === -1) {
+                alert('Peringatan: Format email tidak valid!');
+                return false; // Mencegah form untuk disubmit
+            }
+            
+            // Jika semua validasi lolos
+            alert('Pesan Anda berhasil dikirim! (Ini adalah simulasi)');
+            // Di aplikasi nyata, Anda akan mengirim data ke server di sini.
+            // Untuk contoh ini, kita reset form-nya.
+            document.getElementById('contact-form').reset();
+            return false; // Mencegah halaman refresh setelah submit
+        }
+    </script>
+
+</body>
+</html>
