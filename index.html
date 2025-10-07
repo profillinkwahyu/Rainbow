@@ -25,6 +25,23 @@
         }
 
         body {
+            !-- === Preloader === -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- === Konten Utama === -->
+  <div class="container">
+    <h1>Selamat Datang di Rainbow Linux 🌈</h1>
+    <p>Website profil kelompok kami.</p>
+  </div>
+
+  <!-- === Script sederhana === -->
+  <script>
+    window.addEventListener("load", function() {
+      document.getElementById("preloader").classList.add("hidden");
+    });
+  </script>
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom, #d4f8d4, #ffffff);
             color: #333;
