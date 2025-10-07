@@ -377,12 +377,10 @@
         <section id="contact">
             <div class="container">
                 <h2>Hubungi Kami</h2>
-                <form id="contact-form" onsubmit="return validateForm()">
-                    <input type="text" id="name" name="name" placeholder="Nama Anda" required>
-                    <input type="email" id="email" name="email" placeholder="Email Anda" required>
-                    <textarea id="message" name="message" rows="6" placeholder="Pesan Anda" required></textarea>
-                    <button type="submit">Kirim Pesan</button>
-                </form>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfK4gIjuK7B-TIwo6I8PXBHqt3mm7Fh36vQTOcRaiQtxTk_7A/viewform?embedded=true"
+                width="100" height="800" frameborder="0" marginheight="0" marginwidth="0"
+                >Memuat…
+            </iframe>
             </div>
         </section>
     </main>
@@ -397,34 +395,6 @@
             <p>&copy; 2025 Rainbow Linux. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script>
-        function validateForm() {
-            // Mengambil nilai dari setiap input field
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            // Memeriksa apakah ada field yang kosong
-            if (name === '' || email === '' || message === '') {
-                alert('Peringatan: Semua kolom harus diisi!');
-                return false; // Mencegah form untuk disubmit
-            }
-
-            // Validasi email sederhana (memastikan ada karakter '@')
-            if (email.indexOf('@') === -1) {
-                alert('Peringatan: Format email tidak valid!');
-                return false; // Mencegah form untuk disubmit
-            }
-            
-            // Jika semua validasi lolos
-            alert('Pesan Anda berhasil dikirim! (Ini adalah simulasi)');
-            // Di aplikasi nyata, Anda akan mengirim data ke server di sini.
-            // Untuk contoh ini, kita reset form-nya.
-            document.getElementById('contact-form').reset();
-            return false; // Mencegah halaman refresh setelah submit
-        }
-    </script>
 
 </body>
 </html>
